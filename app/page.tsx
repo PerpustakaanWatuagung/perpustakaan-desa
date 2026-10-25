@@ -232,13 +232,6 @@ export default async function Home() {
             <h1 className="text-2xl font-bold tracking-tight text-slate-900">Dashboard</h1>
             <p className="mt-1 text-sm text-slate-500">Ringkasan kondisi perpustakaan</p>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-900">AD</div>
-            <div>
-              <p className="text-sm font-semibold text-slate-800">Admin</p>
-              <p className="text-xs text-slate-500">Perangkat Desa</p>
-            </div>
-          </div>
         </header>
 
         <div className="space-y-8 px-6 py-7 lg:px-10 lg:py-8">
@@ -261,7 +254,7 @@ export default async function Home() {
                   <h2 className="font-semibold text-slate-900">Peminjaman Terbaru</h2>
                   <p className="mt-1 text-sm text-slate-500">Aktivitas transaksi perpustakaan terbaru</p>
                 </div>
-                <Link href="#" className="flex items-center gap-1 text-sm font-semibold text-emerald-800 hover:text-emerald-950">
+                <Link href="/borrowing-history" className="flex items-center gap-1 text-sm font-semibold text-emerald-800 hover:text-emerald-950">
                   Lihat Semua Riwayat <Icon name="arrow" className="h-4 w-4" />
                 </Link>
               </div>
@@ -316,13 +309,13 @@ export default async function Home() {
               <h2 className="font-semibold text-slate-900">Aksi Cepat</h2>
               <p className="mt-1 text-sm text-slate-500">Kelola aktivitas harian</p>
               <div className="mt-5 space-y-3">
-                <Link href="#" className="flex items-center justify-center gap-2 rounded-md bg-emerald-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-950">
+                <Link href="/books" className="flex items-center justify-center gap-2 rounded-md bg-emerald-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-950">
                   <Icon name="plus" className="h-4 w-4" /> Tambah Buku
                 </Link>
-                <Link href="#" className="flex items-center justify-center gap-2 rounded-md border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                <Link href="/borrowings" className="flex items-center justify-center gap-2 rounded-md border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                   <Icon name="loan" className="h-4 w-4" /> Catat Peminjaman
                 </Link>
-                <Link href="#" className="flex items-center justify-center gap-2 rounded-md border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                <Link href="/returns" className="flex items-center justify-center gap-2 rounded-md border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                   <Icon name="return" className="h-4 w-4" /> Proses Pengembalian
                 </Link>
               </div>
