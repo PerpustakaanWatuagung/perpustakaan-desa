@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Icon, type IconName } from '@/components/icons'
 import { LogoutButton } from '@/components/logout-button'
 
@@ -21,12 +22,19 @@ export function Sidebar({ active }: SidebarProps) {
   return (
     <aside className="flex w-full shrink-0 flex-col border-b border-slate-200 bg-white lg:min-h-screen lg:w-64 lg:border-b-0 lg:border-r">
       <div className="flex items-center gap-3 px-6 py-6">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-900 text-white">
-          <Icon name="book" className="h-5 w-5" />
+        <div className="flex h-12 w-12 items-center justify-center">
+          <Image
+            src="/logo-transparan.png"
+            alt="Logo Perpustakaan Kusuma"
+            width={1080}
+            height={720}
+            unoptimized
+            className="h-full w-full object-contain"
+          />
         </div>
         <div>
-          <p className="text-sm font-bold leading-tight text-slate-900">Perpustakaan Desa</p>
-          <p className="mt-1 text-xs text-slate-500">Watuagung</p>
+          <p className="text-sm font-bold leading-tight text-slate-900">Perpustakaan Kusuma</p>
+          <p className="mt-1 text-xs text-slate-500">Desa Watuagung</p>
         </div>
       </div>
 

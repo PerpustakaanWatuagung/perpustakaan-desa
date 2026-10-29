@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { Icon } from '@/components/icons'
 import { supabase } from '@/lib/supabase'
 
@@ -16,7 +17,8 @@ export default function LoginPage() {
     setError('')
     setIsLoading(true)
 
-    const formData = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const formData = new FormData(form)
     const email = String(formData.get('email') ?? '')
     const password = String(formData.get('password') ?? '')
     try {
@@ -27,13 +29,15 @@ export default function LoginPage() {
 
       if (signInError) {
         setError('Email atau kata sandi salah.')
-        setIsLoading(false)
         return
       }
+
+      form.reset()
     } catch {
       setError('Email atau kata sandi salah.')
-      setIsLoading(false)
       return
+    } finally {
+      setIsLoading(false)
     }
 
     router.replace('/')
@@ -44,11 +48,18 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <div className="rounded-xl border border-slate-200 bg-white px-6 py-8 shadow-sm shadow-slate-200/70 sm:px-10 sm:py-10">
           <div className="text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-900 text-white">
-              <Icon name="book" className="h-7 w-7" />
+            <div className="mx-auto flex h-[88px] w-[88px] items-center justify-center">
+              <Image
+                src="/logo-transparan.png"
+                alt="Logo Perpustakaan Kusuma"
+                width={1080}
+                height={720}
+                unoptimized
+                className="h-full w-full object-contain"
+              />
             </div>
-            <h1 className="mt-5 text-xl font-bold tracking-tight text-slate-900">Perpustakaan Desa Watuagung</h1>
-            <p className="mt-2 text-sm text-slate-500">Panel Administrasi Perpustakaan</p>
+            <h1 className="mt-4 text-xl font-bold tracking-tight text-slate-900">Perpustakaan Kusuma</h1>
+            <p className="mt-2 text-sm text-slate-500">Desa Watuagung</p>
           </div>
 
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
